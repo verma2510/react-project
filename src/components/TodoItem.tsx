@@ -1,7 +1,11 @@
 import React from "react";
 
-const TodoItem: React.FC = () => {
-  return <li className="bg-teal-300 rounded-md px-1 py-0.5 mb-1">Code</li>;
+interface TodoItemProps {
+  title: string;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({title}) => {
+  return <li className="bg-teal-300 rounded-md px-1 py-0.5 mb-1">{title}</li>;
 };
 
 export default TodoItem;
