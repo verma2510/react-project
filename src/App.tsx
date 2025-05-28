@@ -6,13 +6,17 @@ const TodoItems = [
     id: 1,
     title: "Eat",
   },
-  {
+{
     id: 2,
-    title: "Sleep",
+    title: "Code",
   },
   {
     id: 3,
-    title: "Codes",
+    title: "Sleep",
+  },
+  {
+    id: 4,
+    title: "Repeat",
   },
 ];
 
