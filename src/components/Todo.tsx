@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 
 interface TodoProps {
   id: number;
-  title: string;
+  title?: string;
 }
 
 interface TodoItemProps {
