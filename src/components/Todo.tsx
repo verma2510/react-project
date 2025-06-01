@@ -17,7 +17,7 @@ const Todo: React.FC<TodoItemProps> = ({items}) =>{
         <ol>
           {items.map((item)=>{
             return(
-              <TodoItem key={item.id} title={item.title} />
+              <TodoItem key={item.id} title={item.title || "Untitled"} />
             )
           })}
         </ol>
