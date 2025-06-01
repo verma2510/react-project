@@ -1,6 +1,7 @@
 import React from "react";
 import Todo from "./components/Todo";
 import Counter from "./components/Counter";
+import {useState} from 'react';
 
 const TodoItems = [
   {
@@ -22,13 +23,14 @@ const TodoItems = [
 ];
 
 const App: React.FC = () => {
+  const [state, setState] = useState<boolean>(true);
   return (
     <div>
       <Todo items={TodoItems} />
       <Todo items={TodoItems} />
       <Todo items={TodoItems} />
-      <Counter />
-      <Counter />
+      <button onClick={(e)=> setState(!state)} className="text-white bg-gray-500 p-1 rounded-md">Toggle</button>
+      {state ? <Counter/> : ""}
     </div>
   );
 };
