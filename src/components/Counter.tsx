@@ -5,10 +5,14 @@ const Counter: React.FC = () => {
 
   useEffect(()=>{
     console.log("Mounting", count);
+
+    return ()=>{
+        console.log("Unmounting", count);
+    }
   },[])
 
   useEffect(()=>{
-    console.log("Updation", count);
+    console.log("Updating", count);
 
     return () => {
       console.log("Previous Count", count);
