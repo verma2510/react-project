@@ -1,6 +1,7 @@
 import React from "react";
 import Todo from "./components/Todo";
 import Counter from "./components/Counter";
+import TicTacToe from "./components/TicTacToe";
 import {useState} from 'react';
 
 const TodoItems = [
@@ -25,13 +26,23 @@ const TodoItems = [
 const App: React.FC = () => {
   const [state, setState] = useState<boolean>(true);
   return (
-    <div>
-      <Todo items={TodoItems} />
-      <Todo items={TodoItems} />
-      <Todo items={TodoItems} />
-      <button onClick={(e)=> setState(!state)} className="text-white bg-gray-500 p-1 rounded-md">Toggle</button>
-      {state ? <Counter/> : ""}
-    </div>
+    <>
+      <div className="p-4 flex gap-6 items-center">
+        <Todo items={TodoItems} />
+        <Todo items={TodoItems} />
+        <Todo items={TodoItems} />
+        <button
+          onClick={(e) => setState(!state)}
+          className="text-white bg-gray-500 p-1 rounded-md"
+        >
+          Toggle
+        </button>
+        {state ? <Counter /> : ""}
+      </div>
+      <div className="p-4">
+        <TicTacToe/>
+      </div>
+    </>
   );
 };
 
