@@ -1,11 +1,16 @@
 import React from "react";
 
-const Block: React.FC = () => {
-
-
-    return(
-        <div className="border-4 border-black w-20 h-20"></div>
-    )
+interface blockProps {
+  value?: string | null;
+  onClick?: () => void;
 }
+
+const Block: React.FC<blockProps> = (props) => {
+  return (
+    <div onClick={props.onClick} className="border-4 border-gray-800 w-20 h-20 font-bold text-3xl cursor-pointer flex items-center justify-center">
+      {props.value}
+    </div>
+  );
+};
 
 export default Block;
