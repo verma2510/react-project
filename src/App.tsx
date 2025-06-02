@@ -39,7 +39,7 @@ const App: React.FC = () => {
         </button>
         {state ? <Counter /> : ""}
       </div>
-      <div className="p-4">
+      <div className="p-4 flex items-center justify-center">
         <TicTacToe/>
       </div>
     </>
