@@ -49,12 +49,14 @@ const TicTacToe: React.FC = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 grid-rows-3 gap-0 border-4 p-10 border-gray-900">
-        {Array.from({ length: size * size }).map((_, i) => (
-          <Block onClick={() => handleClick(i)} key={i} value={board[i]} />
-        ))}
+      <div className="flex flex-col justify-center items-center">
+        <div className="grid grid-cols-3 grid-rows-3 gap-0 border-4 p-10 bg-gray-500">
+          {Array.from({ length: size * size }).map((_, i) => (
+            <Block onClick={() => handleClick(i)} key={i} value={board[i]} />
+          ))}
+        </div>
+        <Winner winner={winner} onRestart={restartGame} />
       </div>
-      <Winner winner={winner} onRestart={restartGame} />
     </>
   );
 };
