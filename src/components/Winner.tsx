@@ -15,9 +15,21 @@ const Winner: React.FC<winnerProps> = (props) => {
               ? "It's a Draw!"
               : `Winner: ${props.winner}`}
           </h2>
-          <button className="bg-[tomato] font-semibold text-white rounded-md px-2 py-1" onClick={props.onRestart}>Play Again</button>
+          <button
+            className="bg-[tomato] font-semibold text-white rounded-md px-2 py-1"
+            onClick={props.onRestart}
+          >
+            Play Again
+          </button>
         </>
-      ) : null}
+      ) : (
+        <button
+          className="bg-[tomato] font-semibold text-white rounded-md px-2 py-1"
+          onClick={props.onRestart}
+        >
+          Play Again
+        </button>
+      )}
     </div>
   );
 };

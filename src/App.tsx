@@ -2,7 +2,7 @@ import React from "react";
 import Todo from "./components/Todo";
 import Counter from "./components/Counter";
 import TicTacToe from "./components/TicTacToe";
-import {useState} from 'react';
+import { useState } from "react";
 
 const TodoItems = [
   {
@@ -40,8 +40,7 @@ const App: React.FC = () => {
         {state ? <Counter /> : ""}
       </div>
       <div className="p-4 flex items-center justify-center">
-        <TicTacToe/>
-        
+        <TicTacToe />
       </div>
     </>
   );
