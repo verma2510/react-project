@@ -4,7 +4,7 @@ const Player: React.FC = () => {
   const players = [
     { id: 1, label: "Player 1", name: "player1" },
     { id: 2, label: "Player 2", name: "player2" },
-  ]; 
+  ];
 
   return (
     <div className="border p-4">
@@ -25,7 +25,11 @@ const Player: React.FC = () => {
           {["X", "O"].map((symbol, index) => (
             <button
               key={index}
-              className="border px-2 py-1 w-[75px] font-bold rounded-md text-lg cursor-pointer"
+              className={`border px-2 py-1 w-[75px] font-bold rounded-md text-lg cursor-pointer ${
+                symbol === "X"
+                  ? "bg-red-500 text-white"
+                  : "bg-blue-500 text-white"
+              }`}
             >
               {symbol}
             </button>
