@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Block from "./Block";
 import Winner from "./Winner";
 
@@ -41,9 +41,9 @@ const TicTacToe: React.FC = () => {
   };
 
   const restartGame = () => {
-    setBoard(Array(9).fill(null));
-    setIsXTurn(true);
-    setWinner(null);
+      setBoard(Array(9).fill(null));
+      setIsXTurn(true);
+      setWinner(null);
   };
 
   return (

@@ -3,6 +3,7 @@ import Todo from "./components/Todo";
 import Counter from "./components/Counter";
 import TicTacToe from "./components/TicTacToe";
 import { useState } from "react";
+import Leaderboard from "./components/Leaderboard";
 
 const TodoItems = [
   {
@@ -39,8 +40,9 @@ const App: React.FC = () => {
         </button>
         {state ? <Counter /> : ""}
       </div>
-      <div className="p-4 flex items-center justify-center">
+      <div className="p-4 flex gap-8 items-center justify-center">
         <TicTacToe />
+        <Leaderboard/>
       </div>
     </>
   );
