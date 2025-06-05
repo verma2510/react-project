@@ -7,14 +7,14 @@ const Player: React.FC = () => {
   ];
 
   return (
-    <div className="border p-4">
+    <div className="p-4 bg-pink-200">
       <form action="" className="flex flex-col">
         {players.map((player) => (
           <div key={player.id}>
             <label htmlFor={player.name}>{player.label}: </label>
             <input
               type="text"
-              className="border rounded-md px-2 py-1 mb-2"
+              className="rounded-md px-2 py-1 mb-2 bg-white focus-outline-2 focus:outline-red-400 "
               name={player.name}
               placeholder="your in-game name"
             />
