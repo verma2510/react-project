@@ -43,8 +43,8 @@ const App: React.FC = () => {
       </div>
       <div className="p-4 flex gap-8 items-center justify-center">
         <TicTacToe />
-        <Leaderboard/>
-        <Player/>
+        <Leaderboard />
+        <Player />
       </div>
     </>
   );
