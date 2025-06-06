@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Block from "./Block";
 import Winner from "./Winner";
 import PlayerSetup from "./Player";
+import Leaderboard from "./Leaderboard";
+
+
 
 const TicTacToe: React.FC = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -12,12 +15,54 @@ const TicTacToe: React.FC = () => {
     player2: string;
     symbol1: "X" | "O";
   } | null>(null);
+  const [leaderboard, setLeaderboard] = useState<
+    { name: string; points: number; matches: number }[]
+  >([]);
+
   const size = 3;
+
+  const updateLeaderboard = (result: string) => {
+    if(!players) return;
+
+    const player1 = {
+      name: players.player1,
+      symbol: players.symbol1,
+    };
+    const player2 = {
+      name: players.player2,
+      symbol: symbol2!,
+    };
+    let updated = [...leaderboard];
+
+    const updatePlayer = (name: string, point: number) => {
+      const existing = updated.find((p)=> p.name === name);
+      if(existing){
+        existing.points += point;
+        existing.points += 1;        
+      } else{
+        updated.push({name, points: point, matches: 1});
+      }
+    };
+
+    if (result === "Draw") {
+      updatePlayer(player1.name, 0.5);
+      updatePlayer(player2.name, 0.5);
+    } else {
+      const winnerName =
+        result === player1.symbol ? player1.name : player2.name;
+      const loserName = result === player1.symbol ? player2.name : player1.name;
+
+      updatePlayer(winnerName, 1);
+      updatePlayer(loserName, 0);
+    }
+
+    setLeaderboard(updated);
+  };
 
   const symbol2 = players?.symbol1 === "X" ? "O" : "X";
 
   const handleClick = (index: number) => {
-    if (board[index] || !players || !winner) return;
+    if (board[index] || !players || winner) return;
 
     const newBoard = [...board];
     newBoard[index] = isXTurn ? players.symbol1 : symbol2;
@@ -25,7 +70,11 @@ const TicTacToe: React.FC = () => {
     setIsXTurn(!isXTurn);
 
     const win = checkWinner(newBoard);
-    if (win) setWinner(win);
+    if (win !== null) {
+      setWinner(win);
+      updateLeaderboard(win); // also update leaderboard here
+    };
+
   };
   const checkWinner = (board: Array<string | null>) => {
     const combos = [
@@ -82,6 +131,12 @@ const TicTacToe: React.FC = () => {
               ))}
             </div>
             <Winner winner={winner} onRestart={restartGame} />
+            {winner && leaderboard.length > 0 && (
+              <div className="mt-4">
+                <Leaderboard data={leaderboard} />
+              </div>
+            )}
+            {leaderboard.length > 0 && <Leaderboard data={leaderboard} />}
           </>
         )}
       </div>

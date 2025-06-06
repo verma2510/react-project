@@ -3,8 +3,7 @@ import Todo from "./components/Todo";
 import Counter from "./components/Counter";
 import TicTacToe from "./components/TicTacToe";
 import { useState } from "react";
-import Leaderboard from "./components/Leaderboard";
-import Player from "./components/Player";
+
 
 const TodoItems = [
   {
@@ -27,6 +26,7 @@ const TodoItems = [
 
 const App: React.FC = () => {
   const [state, setState] = useState<boolean>(true);
+
   return (
     <>
       <div className="p-4 flex gap-6 items-center">
@@ -43,8 +43,6 @@ const App: React.FC = () => {
       </div>
       <div className="p-4 flex gap-8 items-center justify-center">
         <TicTacToe />
-        <Leaderboard />
-        <Player />
       </div>
     </>
   );
