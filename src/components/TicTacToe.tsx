@@ -131,15 +131,14 @@ const TicTacToe: React.FC = () => {
               ))}
             </div>
             <Winner winner={winner} onRestart={restartGame} />
-            {winner && leaderboard.length > 0 && (
-              <div className="mt-4">
-                <Leaderboard data={leaderboard} />
-              </div>
-            )}
-            {leaderboard.length > 0 && <Leaderboard data={leaderboard} />}
           </>
         )}
       </div>
+      {winner && leaderboard.length > 0 && (
+        <div className="mt-4">
+          <Leaderboard data={leaderboard} />
+        </div>
+      )}
     </>
   );
 };
