@@ -112,34 +112,59 @@ const TicTacToe: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="flex flex-col justify-center items-center">
-        {!players ? (
-          <PlayerSetup onStart={handleSetup} />
-        ) : (
-          <>
-            <div className="mb-4 text-lg font-semibold">
-              Turn: {isXTurn ? players.player1 : players.player2}
+    <div className="min-h-screen py-8">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
+          {/* Main Game Area */}
+          <div className="flex-1">
+            <div className="bg-white rounded-xl shadow-2xl p-8">
+              {!players ? (
+                <div className="space-y-6">
+                  <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+                    Tic Tac Toe
+                  </h1>
+                  <PlayerSetup onStart={handleSetup} />
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  <div className="text-2xl font-bold text-center text-gray-800 bg-gray-100 rounded-lg py-3 px-6 shadow-md">
+                    Turn:{" "}
+                    {isXTurn ? (
+                      <span className="text-blue-600">{players.player1}</span>
+                    ) : (
+                      <span className="text-red-600">{players.player2}</span>
+                    )}
+                  </div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-red-500 rounded-xl transform -rotate-1"></div>
+                    <div className="relative grid grid-cols-3 grid-rows-3 gap-2 p-6 bg-gray-800 rounded-xl">
+                      {Array.from({ length: size * size }).map((_, i) => (
+                        <Block
+                          onClick={() => handleClick(i)}
+                          key={i}
+                          value={board[i]}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  {winner && <Winner winner={winner} onRestart={restartGame} />}
+                </div>
+              )}
             </div>
-            <div className="grid grid-cols-3 grid-rows-3 gap-0 p-10 bg-gray-500">
-              {Array.from({ length: size * size }).map((_, i) => (
-                <Block
-                  onClick={() => handleClick(i)}
-                  key={i}
-                  value={board[i]}
-                />
-              ))}
+          </div>
+
+          {/* Leaderboard Area - Always Visible */}
+          <div className="lg:w-80 w-full">
+            <div className="bg-white rounded-xl shadow-xl p-6 sticky top-8">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                Leaderboard
+              </h2>
+              <Leaderboard data={leaderboard} />
             </div>
-            <Winner winner={winner} onRestart={restartGame} />
-          </>
-        )}
-      </div>
-      {winner && leaderboard.length > 0 && (
-        <div className="mt-4">
-          <Leaderboard data={leaderboard} />
+          </div>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
 
