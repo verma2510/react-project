@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import TodoTextfield from "./TodoTextfield";
 import TodoButton from "./TodoButton";
 import TodoList from "./TodoList";
 
-const TodoContainer: React.FC = () => {
-    return (
-        <div className="bg-gray-200 max-w-max rounded-md p-4">
-            <p className="font-bold py-2" >Todo List</p>
-            <TodoTextfield placeholder="Add your task"/>
-            <TodoButton name="Add"/>
-            <TodoList listName="Learn JS"/>
-        </div>
-    )
+interface TodoContainerProps {
+  id: number;
+  text: string;
 }
+
+const TodoContainer: React.FC<TodoContainerProps> = () => {
+  const [todos, setTodos] = useState<TodoContainerProps[]>([]);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleAddTodo = (text: string) => {
+    if (text.trim()) {
+      const newTodo = {
+        id: Date.now(),
+        text: text.trim(),
+      };
+      setTodos([...todos, newTodo]);
+    }
+  };
+
+  const handleClick = () => {
+    handleAddTodo(inputValue);
+  };
+  return (
+    <div className="bg-gray-200 max-w-max rounded-md p-4">
+      <p className="font-bold py-2">Todo List</p>
+      <TodoTextfield placeholder="Add your task" onSubmit={handleAddTodo} />
+      <TodoButton onClick={handleClick} name="Add" />
+      {todos.map((todo) => (
+        <TodoList key={todo.id} listName={todo.text} />
+      ))}
+    </div>
+  );
+};
 
 export default TodoContainer;

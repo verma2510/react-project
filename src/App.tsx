@@ -31,7 +31,7 @@ const App: React.FC = () => {
     <>
       <div className="flex justify-center p-4">
         {" "}
-        <TodoContainer />
+        <TodoContainer id={1} text="text" />
       </div>
       <div className="p-4 flex gap-6 items-center">
         <Todo items={TodoItems} />
