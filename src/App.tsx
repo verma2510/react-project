@@ -3,7 +3,7 @@ import Todo from "./components/Todo";
 import Counter from "./components/Counter";
 import TicTacToe from "./components/TicTacToe";
 import { useState } from "react";
-
+import TodoContainer from "./components/TodoContainer";
 
 const TodoItems = [
   {
@@ -29,10 +29,12 @@ const App: React.FC = () => {
 
   return (
     <>
+      <TodoContainer />
       <div className="p-4 flex gap-6 items-center">
         <Todo items={TodoItems} />
         <Todo items={TodoItems} />
         <Todo items={TodoItems} />
+
         <button
           onClick={(e) => setState(!state)}
           className="text-white bg-gray-500 p-1 rounded-md"
