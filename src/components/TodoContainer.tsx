@@ -4,8 +4,8 @@ import TodoButton from "./TodoButton";
 
 const TodoContainer: React.FC = () => {
     return (
-        <div>
-            <p>Todo List</p>
+        <div className="bg-gray-200 max-w-max rounded-md p-4">
+            <p className="font-bold py-2" >Todo List</p>
             <TodoTextfield placeholder="Add your task"/>
             <TodoButton name="Add"/>
         </div>

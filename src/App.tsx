@@ -29,7 +29,10 @@ const App: React.FC = () => {
 
   return (
     <>
-      <TodoContainer />
+      <div className="flex justify-center p-4">
+        {" "}
+        <TodoContainer />
+      </div>
       <div className="p-4 flex gap-6 items-center">
         <Todo items={TodoItems} />
         <Todo items={TodoItems} />
