@@ -1,6 +1,7 @@
 import React from "react";
 import TodoTextfield from "./TodoTextfield";
 import TodoButton from "./TodoButton";
+import TodoList from "./TodoList";
 
 const TodoContainer: React.FC = () => {
     return (
@@ -8,6 +9,7 @@ const TodoContainer: React.FC = () => {
             <p className="font-bold py-2" >Todo List</p>
             <TodoTextfield placeholder="Add your task"/>
             <TodoButton name="Add"/>
+            <TodoList listName="Learn JS"/>
         </div>
     )
 }
