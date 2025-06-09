@@ -7,7 +7,7 @@ interface TodoButtonProps {
 
 const TodoButton: React.FC<TodoButtonProps> = (props) => {
   return (
-    <button onClick={props.onClick} className="bg-red-400 px-2 text-white cursor-pointer font-bold rounded-2xl">
+    <button onClick={props.onClick} className="bg-green-400 px-2 text-white cursor-pointer font-semibold rounded-2xl">
       {props.name}
     </button>
   );

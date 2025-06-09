@@ -19,6 +19,7 @@ const TodoContainer: React.FC<TodoContainerProps> = () => {
         text: text.trim(),
       };
       setTodos([...todos, newTodo]);
+      setInputValue("")
     }
   };
 
