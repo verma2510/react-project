@@ -24,7 +24,7 @@ const TodoTextfield: React.FC<TodoTextfieldProps> = (props) => {
       value={addList}
       onChange={handleChange}
       onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-      className="bg-white px-2 rounded-2xl focus:outline-red-200"
+      className="bg-white px-2 my-2 rounded-2xl focus:outline-red-200"
       type="text"
       placeholder={props.placeholder}
     />
