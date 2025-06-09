@@ -26,13 +26,18 @@ const TodoContainer: React.FC<TodoContainerProps> = () => {
   const handleClick = () => {
     handleAddTodo(inputValue);
   };
+
+  const handleDeleteTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="bg-gray-200 max-w-max rounded-md p-4">
       <p className="font-bold py-2">Todo List</p>
       <TodoTextfield placeholder="Add your task" onSubmit={handleAddTodo} />
       <TodoButton onClick={handleClick} name="Add" />
       {todos.map((todo) => (
-        <TodoList key={todo.id} listName={todo.text} />
+        <TodoList onClick={() => handleDeleteTodo(todo.id)} key={todo.id} listName={todo.text} />
       ))}
     </div>
   );
