@@ -32,7 +32,7 @@ const TodoContainer: React.FC<TodoContainerProps> = () => {
   };
 
   return (
-    <div className="bg-gray-200 max-w-max rounded-md p-4">
+    <div className="bg-gray-200 max-w-max rounded-md shadow-xl p-4">
       <p className="font-bold">Todo List</p>
       <TodoTextfield placeholder="Add your task" onSubmit={handleAddTodo} />
       <TodoButton onClick={handleClick} name="Add" />
