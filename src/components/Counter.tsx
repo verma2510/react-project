@@ -43,6 +43,7 @@ const Counter: React.FC = () => {
       >
         Decrement
       </button>
+      <p className="font-semibold">Number is {count === 0 ? "zero" : count > 0 && count % 2 === 0 ? "even" : "odd"}</p>
     </div>
   );
 };
