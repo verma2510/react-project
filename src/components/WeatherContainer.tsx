@@ -3,6 +3,7 @@ import TextField from "./TextField";
 import Button from "./Button";
 
 const WeatherContainer: React.FC = () => {
+    
   return (
     <div className="flex flex-col items-center justify-center gap-4 p-4 bg-blue-50 shadow-md rounded-lg">
       <h1 className="font-bold text-lg">Weather Information</h1>
