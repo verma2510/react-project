@@ -23,6 +23,11 @@ const WeatherContainer: React.FC = () => {
 
         <div className="flex items-center justify-center gap-2 w-full">
           <TextField
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                weatherData.fetchWeather(weatherData.searchCity);
+              }
+            }}
             placeholder="Search city..."
             value={weatherData.searchCity}
             onChange={(e) => weatherData.setSearchCity(e.target.value)}
