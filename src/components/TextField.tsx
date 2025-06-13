@@ -2,18 +2,19 @@ import React from "react";
 
 interface TextFieldProps {
   placeholder?: string;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const TextField: React.FC<TextFieldProps> = ({ placeholder }) => {
-  const [inputValue, setInputValue] = React.useState("");
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  };
-  
+const TextField: React.FC<TextFieldProps> = ({
+  placeholder,
+  value,
+  onChange,
+}) => {
   return (
     <input
-      value={inputValue}
-      onChange={handleChange}
+      value={value}
+      onChange={onChange}
       type="text"
       className="border border-gray-300 rounded-lg bg-white p-2"
       placeholder={placeholder}

@@ -1,33 +1,47 @@
-import React, { createContext, useContext, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode, useState } from "react";
+import { getCityWeather } from "../api";
 
-// Context value type
-interface WeatherData {
-  temperature: number;
-  condition: string;
-  location: string;
-  time: string;
+// Define shape of context value
+interface WeatherContextType {
+  searchCity: string;
+  setSearchCity: React.Dispatch<React.SetStateAction<string>>;
+  data: any; // Or define a proper interface if you know the structure
+  fetchWeather: (city: string) => Promise<void>;
 }
 
-// Provider props type
+// Create context
+const WeatherContext = createContext<WeatherContextType | null>(null);
+
+// Props for Provider
 interface WeatherProviderProps {
-  value: WeatherData;
   children: ReactNode;
 }
 
-// Create context with proper type
-const WeatherContext = createContext<WeatherData | null>(null);
-
 // Weather Provider
 export const WeatherProvider: React.FC<WeatherProviderProps> = ({
-  value,
   children,
 }) => {
+  const [data, setData] = useState(null);
+  const [searchCity, setSearchCity] = useState<string>("");
+
+  const fetchWeather = async (city: string) => {
+    try {
+      const response = await getCityWeather(city);
+      setData(response);
+    } catch (error) {
+      console.error("Failed to fetch weather:", error);
+    }
+  };
+
   return (
-    <WeatherContext.Provider value={value}>{children}</WeatherContext.Provider>
+    <WeatherContext.Provider
+      value={{ searchCity, setSearchCity, data, fetchWeather }}
+    >
+      {children}
+    </WeatherContext.Provider>
   );
 };
 
-// Hook to use context
 export const useWeatherContext = () => {
   const context = useContext(WeatherContext);
   if (!context) {
