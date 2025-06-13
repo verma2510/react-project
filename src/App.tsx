@@ -4,6 +4,7 @@ import Counter from "./components/Counter";
 import TicTacToe from "./components/TicTacToe";
 import { useState } from "react";
 import TodoContainer from "./components/TodoContainer";
+import WeatherContainer from "./components/WeatherContainer";
 
 const TodoItems = [
   {
@@ -29,9 +30,10 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className="flex justify-center p-4">
+      <div className="flex flex-col items-center justify-center gap-10 p-4">
         {" "}
         <TodoContainer id={1} text="text" />
+        <WeatherContainer />
       </div>
       <div className="p-4 flex gap-6 items-center">
         <Todo items={TodoItems} />
