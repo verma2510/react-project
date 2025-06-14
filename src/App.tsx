@@ -42,7 +42,7 @@ const App: React.FC = () => {
 
         <button
           onClick={(e) => setState(!state)}
-          className="text-white bg-gray-500 p-1 rounded-md"
+          className="text-white cursor-pointer bg-gray-500 p-1 rounded-md"
         >
           Toggle
         </button>
