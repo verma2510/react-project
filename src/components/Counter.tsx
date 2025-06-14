@@ -31,18 +31,14 @@ const Counter: React.FC = () => {
   return (
     <div className="flex gap-1 items-center py-2">
       <h1 className="font-bold text-lg">{count}</h1>
-      <button
-        onClick={handleIncrement}
-        className="bg-[lightgreen] cursor-pointer rounded-md text-white p-1 "
-      >
-        Increment
-      </button>
-      <button
-        onClick={handleDecrement}
-        className="bg-[tomato] rounded-md text-white cursor-pointer p-1 "
-      >
-        Decrement
-      </button>
+      {[
+        { label: "Increment", className: "bg-[lightgreen] cursor-pointer rounded-md text-white p-1", onClick: handleIncrement },
+        { label: "Decrement", className: "bg-[tomato] rounded-md text-white cursor-pointer p-1", onClick: handleDecrement }
+      ].map(({ label, className, onClick }) => (
+        <button key={label} onClick={onClick} className={className}>
+          {label}
+        </button>
+      ))}
       <p className="font-semibold">
         Number is{" "}
         {count === 0 ? "zero" : count > 0 && count % 2 === 0 ? "even" : "odd"}
