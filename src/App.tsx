@@ -37,9 +37,6 @@ const App: React.FC = () => {
       </div>
       <div className="p-4 flex gap-6 items-center">
         <Todo items={TodoItems} />
-        <Todo items={TodoItems} />
-        <Todo items={TodoItems} />
-
         <button
           onClick={(e) => setState(!state)}
           className="text-white cursor-pointer bg-gray-500 p-1 rounded-md"
