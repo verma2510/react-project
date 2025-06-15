@@ -5,6 +5,7 @@ import TicTacToe from "./components/TicTacToe";
 import { useState } from "react";
 import TodoContainer from "./components/TodoContainer";
 import WeatherContainer from "./components/WeatherContainer";
+import CardMaker from "./projects/card-generator/CardMaker";
 
 const TodoItems = [
   {
@@ -45,6 +46,7 @@ const App: React.FC = () => {
         </button>
         {state ? <Counter /> : ""}
       </div>
+      <CardMaker/>
       <div className="p-4 flex gap-8 items-center justify-center">
         <TicTacToe />
       </div>
