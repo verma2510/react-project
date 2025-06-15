@@ -23,7 +23,7 @@ const TextField: React.FC<TextFieldProps> = ({
         onChange={onChange}
         onKeyDown={onKeyDown}
         type="text"
-        className="border border-gray-300 rounded-lg bg-white p-2 w-full"
+        className="border border-gray-300 rounded-lg bg-white p-2 w-[250px]"
         placeholder={placeholder}
       />
     </div>

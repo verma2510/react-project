@@ -12,7 +12,7 @@ const Details: React.FC = () => {
       { title: "Company Name", placeholder: "Enter your company name" },
     ];
     return (
-        <div className="w-full">
+        <div className="border-red-500 border-2">
             {detailsData.map((items, index) => (
                 <div key={index} className="mb-3 w-full">
                     <TextField 
