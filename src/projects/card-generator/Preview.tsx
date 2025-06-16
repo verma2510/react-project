@@ -2,7 +2,7 @@ import React from "react";
 
 const Preview: React.FC = () => {
   return (
-    <div className="border-green-500 flex justify-between items-center border-2 p-4 h-[270px] w-[400px]">
+    <div className="border-green-500 flex justify-between items-center bg- border-2 px-4 h-[270px] w-[400px]">
       <div>
         <h1 className="text-2xl font-bold">Name</h1>
         <p className="text-lg font-medium">Designation</p>

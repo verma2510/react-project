@@ -29,7 +29,7 @@ const Details: React.FC = () => {
     ];
 
     return (
-        <div className="border-red-500 border-2">
+        <div className="border-red-500 border-2 p-2">
             {detailsData.map((item) => (
                 <div key={item.field} className="mb-3 w-full">
                     <TextField 
