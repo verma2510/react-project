@@ -10,6 +10,7 @@ interface DetailsProps {
         address: string;
         companyName: string;
         photo: string;
+        link: string;
     };
     onFormChange: (field: string, value: string) => void;
 }
@@ -37,31 +38,32 @@ const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
         { field: "phone", title: "Phone", placeholder: "Enter your phone number" },
         { field: "address", title: "Address", placeholder: "Enter your address" },
         { field: "companyName", title: "Company Name", placeholder: "Enter your company name" },
+        { field: "link", title: "Link", placeholder: "Enter your link" },
     ];
 
     return (
-        <div className="border-red-500 border-2 p-2">
-            {detailsData.map((item) => (
-                <div key={item.field} className="mb-3 w-full">
-                    <TextField 
-                        title={item.title} 
-                        placeholder={item.placeholder}
-                        onChange={handleChange(item.field)}
-                        value={formValues[item.field]}
-                    />
-                </div>
-            ))}
-            <div className="mb-3 w-full">
-                <p className="mb-1 font-medium">Photo</p>
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handlePhotoChange}
-                    className="w-full p-1 border rounded"
-                />
-            </div>
+      <div className="border-red-500 border-2 p-2">
+        {detailsData.map((item) => (
+          <div key={item.field} className="mb-3 w-full">
+            <TextField
+              title={item.title}
+              placeholder={item.placeholder}
+              onChange={handleChange(item.field)}
+              value={formValues[item.field]}
+            />
+          </div>
+        ))}
+        <div className="mb-3">
+          <p className="">Photo</p>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handlePhotoChange}
+            className="border border-gray-300 rounded-lg bg-white p-2 w-[250px]"
+          />
         </div>
-    )
+      </div>
+    );
 };
 
 export default Details;

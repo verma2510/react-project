@@ -10,7 +10,8 @@ const CardGenerator: React.FC = () => {
         phone: "",
         address: "",
         companyName: "",
-        photo: ""
+        photo: "",
+        link: ""
     });
 
     const handleFormChange = (field: string, value: string) => {
