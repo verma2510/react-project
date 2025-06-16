@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "../../components/TextField";
 
-const Details: React.FC = () => {
-    const [formValues, setFormValues] = useState({
-        name: "",
-        designation: "",
-        email: "",
-        phone: "",
-        address: "",
-        companyName: ""
-    });
+interface DetailsProps {
+    formValues: {
+        name: string;
+        designation: string;
+        email: string;
+        phone: string;
+        address: string;
+        companyName: string;
+    };
+    onFormChange: (field: string, value: string) => void;
+}
 
+const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
     const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormValues(prev => ({
-            ...prev,
-            [field]: e.target.value
-        }));
-        console.log(`${field}: `, e.target.value);
+        onFormChange(field, e.target.value);
     }
 
     const detailsData = [
