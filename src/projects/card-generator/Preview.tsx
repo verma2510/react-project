@@ -8,11 +8,12 @@ interface PreviewProps {
     phone: string;
     address: string;
     companyName: string;
+    photo: string;
   };
 }
 
 const Preview: React.FC<PreviewProps> = ({ formValues }) => {
-  const { name, designation, email, phone, address, companyName } = formValues;
+  const { name, designation, email, phone, address, companyName, photo } = formValues;
   
   return (
     <div className="border-green-500 flex justify-between items-center bg- border-2 px-4 h-[270px] w-[400px]">
@@ -24,7 +25,11 @@ const Preview: React.FC<PreviewProps> = ({ formValues }) => {
         <p className="">{address || "Address"}</p>
       </div>
       <div>
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=20" alt="Logo" />
+        <img 
+          src={photo || "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=20"}
+          alt="Profile"
+          className="w-20 h-20 object-cover rounded-full mb-2"
+        />
         <p className="">{companyName || "Company Name"}</p>
         <img src="https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=Example" alt="QR" />
       </div>
