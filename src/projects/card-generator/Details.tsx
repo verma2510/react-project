@@ -78,7 +78,7 @@ const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
           </div>
         ))}
         <div className="w-full">
-          <p className="mb-1 font-medium">Photo</p>
+          <p >Photo</p>
           <input
             type="file"
             accept="image/*"
