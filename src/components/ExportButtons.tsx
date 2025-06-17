@@ -3,7 +3,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 interface ExportButtonsProps {
-  componentRef: React.RefObject<HTMLElement>;
+  componentRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const ExportButtons: React.FC<ExportButtonsProps> = ({ componentRef }) => {
