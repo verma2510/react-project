@@ -27,8 +27,8 @@ const Preview: React.FC<PreviewProps> = ({ formValues }) => {
     <div className="flex flex-col gap-2 justify-center items-center">
       <div
         ref={componentRef}
-        className="border-green-500 flex justify-between items-center bg- border-2 px-4 h-[270px] w-[400px]"
-      >
+        className="flex text-[#000] bg-[rgb(255,255,255)] justify-between items-center border-2 px-4 h-[270px] w-[400px]"
+      > 
         <div>
           <h1 className="text-2xl font-bold">{name || "Name"}</h1>
           <p className="text-lg font-medium">{designation || "Designation"}</p>
