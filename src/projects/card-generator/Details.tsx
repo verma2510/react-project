@@ -55,7 +55,7 @@ const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
         {
             groupFields: [
                 { field: "companyName", title: "Company Name", placeholder: "Enter your company name" },
-                { field: "link", title: "Link", placeholder: "Enter your link" }
+                { field: "link", title: "Link [QR]", placeholder: "Enter your link" }
             ],
             className: "flex gap-4"
         }

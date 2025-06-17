@@ -8,10 +8,10 @@ interface ExportButtonsProps {
 
 const ExportButtons: React.FC<ExportButtonsProps> = ({ componentRef }) => {
   const waitForImages = async (element: HTMLElement) => {
-    const images = Array.from(element.getElementsByTagName('img'));
-    const promises = images.map(img => {
+    const images = Array.from(element.getElementsByTagName("img"));
+    const promises = images.map((img) => {
       if (img.complete) return Promise.resolve();
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         img.onload = resolve;
         img.onerror = resolve;
       });
@@ -25,7 +25,7 @@ const ExportButtons: React.FC<ExportButtonsProps> = ({ componentRef }) => {
       const canvas = await html2canvas(componentRef.current, {
         useCORS: true,
         allowTaint: true,
-        logging: false
+        logging: false,
       });
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
@@ -43,7 +43,7 @@ const ExportButtons: React.FC<ExportButtonsProps> = ({ componentRef }) => {
       const canvas = await html2canvas(componentRef.current, {
         useCORS: true,
         allowTaint: true,
-        logging: false
+        logging: false,
       });
       const image = canvas.toDataURL(`image/${format}`);
       const link = document.createElement("a");
@@ -68,10 +68,10 @@ const ExportButtons: React.FC<ExportButtonsProps> = ({ componentRef }) => {
   ];
 
   return (
-    <div className="text-[#000] bg-[rgb(255,255,255)]">
+    <div className="flex gap-2">
       {exportData.map((button) => (
         <button
-          className="border mr-2 px-2 py-1 rounded-md cursor-pointer bg-red-500 text-white"
+          className="border px-2 py-1 font-semibold rounded-md cursor-pointer bg-red-500 text-white"
           key={button.format}
           onClick={button.onClick}
         >
