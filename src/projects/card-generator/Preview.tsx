@@ -27,7 +27,7 @@ const Preview: React.FC<PreviewProps> = ({ formValues }) => {
     <div className="flex flex-col gap-2 justify-center items-center">
       <div
         ref={componentRef}
-        className="relative flex bg-[#1a365d] text-[#e5b45b] h-[270px] w-[480px] overflow-hidden rounded-lg shadow-xl"
+        className="relative flex bg-[#1a365d] text-[#e5b45b] h-[270px] w-[480px] overflow-hidden rounded-2xl shadow-xl"
       >
         <div className="absolute top-0 left-0 w-[55%] h-full bg-[#1a365d] transform -skew-x-12 origin-top-left z-10"></div>
         <div className="relative z-20 w-[50%] p-8 flex flex-col justify-center items-center">
@@ -37,7 +37,7 @@ const Preview: React.FC<PreviewProps> = ({ formValues }) => {
                 photo || "https://avatars.githubusercontent.com/u/162727802?v=4"
               }
               alt="Company Logo"
-              className="w-40 h-20 object-contain mb-2"
+              className="w-20 h-20 object-contain mb-2"
             />
             <p className="text-md font-semibold">{companyName || "Nextgen"}</p>
           </div>
