@@ -31,35 +31,59 @@ const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
         }
     };
 
-    const detailsData = [
-        { field: "name", title: "Name", placeholder: "Enter your name" },
-        { field: "designation", title: "Designation", placeholder: "Enter your designation" },
-        { field: "email", title: "Email", placeholder: "Enter your email" },
-        { field: "phone", title: "Phone", placeholder: "Enter your phone number" },
-        { field: "address", title: "Address", placeholder: "Enter your address" },
-        { field: "companyName", title: "Company Name", placeholder: "Enter your company name" },
-        { field: "link", title: "Link", placeholder: "Enter your link" },
+    const detailsGroups = [
+        {
+            groupFields: [
+                { field: "name", title: "Name", placeholder: "Enter your name" },
+                { field: "designation", title: "Designation", placeholder: "Enter your designation" }
+            ],
+            className: "flex gap-4"
+        },
+        {
+            groupFields: [
+                { field: "email", title: "Email", placeholder: "Enter your email" },
+                { field: "phone", title: "Phone", placeholder: "Enter your phone number" }
+            ],
+            className: "flex gap-4"
+        },
+        {
+            groupFields: [
+                { field: "address", title: "Address", placeholder: "Enter your address" }
+            ],
+            className: "w-full"
+        },
+        {
+            groupFields: [
+                { field: "companyName", title: "Company Name", placeholder: "Enter your company name" },
+                { field: "link", title: "Link", placeholder: "Enter your link" }
+            ],
+            className: "flex gap-4"
+        }
     ];
 
     return (
-      <div className="border-red-500 border-2 p-2">
-        {detailsData.map((item) => (
-          <div key={item.field} className="mb-3 w-full">
-            <TextField
-              title={item.title}
-              placeholder={item.placeholder}
-              onChange={handleChange(item.field)}
-              value={formValues[item.field]}
-            />
+      <div className="border-red-500 border-2 p-2 space-y-3">
+        {detailsGroups.map((group, groupIndex) => (
+          <div key={groupIndex} className={group.className}>
+            {group.groupFields.map((item) => (
+              <div key={item.field} className="flex-1">
+                <TextField
+                  title={item.title}
+                  placeholder={item.placeholder}
+                  onChange={handleChange(item.field)}
+                  value={formValues[item.field]}
+                />
+              </div>
+            ))}
           </div>
         ))}
-        <div className="mb-3">
-          <p className="">Photo</p>
+        <div className="w-full">
+          <p className="mb-1 font-medium">Photo</p>
           <input
             type="file"
             accept="image/*"
             onChange={handlePhotoChange}
-            className="border border-gray-300 rounded-lg bg-white p-2 w-[250px]"
+            className="w-full border border-gray-300 rounded-lg bg-white p-2"
           />
         </div>
       </div>
