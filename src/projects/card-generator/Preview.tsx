@@ -37,7 +37,7 @@ const Preview: React.FC<PreviewProps> = ({ formValues }) => {
                 photo || "https://avatars.githubusercontent.com/u/162727802?v=4"
               }
               alt="Company Logo"
-              className="w-20 h-20 object-contain mb-2"
+              className="w-25 h-25 object-contain mb-2 rounded-[50%]"
             />
             <p className="text-md font-semibold">{companyName || "Nextgen"}</p>
           </div>
@@ -46,7 +46,7 @@ const Preview: React.FC<PreviewProps> = ({ formValues }) => {
             alt="QR"
             className="w-16 h-16"
           />
-        </div>
+        </div>  
         <div className="relative z-20 flex-1 p-8 flex flex-col justify-center items-start">
           <h1 className="text-2xl font-bold tracking-wider mb-1">{name || "AMAN VERMA"}</h1>
           <p className="text-lg font-medium mb-6">{designation || "Full Stack Developer"}</p>
