@@ -22,7 +22,7 @@ const CardGenerator: React.FC = () => {
     };
 
     return (
-        <div className="flex justify-center border gap-4 p-4">
+        <div className="flex justify-center gap-8 p-4">
             <Details formValues={formValues} onFormChange={handleFormChange} />
             <Preview formValues={formValues} />
         </div>
