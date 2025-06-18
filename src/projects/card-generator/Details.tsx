@@ -62,9 +62,10 @@ const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
     ];
 
     return (
-      <div className="border-red-500 border-2 p-2 space-y-3">
+      <div className="bg-white rounded-xl shadow-lg p-6 space-y-4">
+        <h2 className="text-2xl font-semibold text-[#1a365d] mb-6">Business Card Details</h2>
         {detailsGroups.map((group, groupIndex) => (
-          <div key={groupIndex} className={group.className}>
+          <div key={groupIndex} className={`${group.className} mb-4`}>
             {group.groupFields.map((item) => (
               <div key={item.field} className="flex-1">
                 <TextField
@@ -78,13 +79,16 @@ const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
           </div>
         ))}
         <div className="w-full">
-          <p >Photo</p>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handlePhotoChange}
-            className="w-full border border-gray-300 rounded-lg bg-white p-2"
-          />
+          <p className="text-sm font-medium text-gray-700 mb-2">Upload Logo</p>
+          <div className="relative">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              className="w-full file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold file:bg-[#1a365d] file:text-white hover:file:bg-[#2a466d] file:rounded-lg file:cursor-pointer border border-gray-200 rounded-lg p-2 text-sm text-gray-500 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#1a365d] focus:ring-opacity-50 transition-colors duration-200"
+            />
+          </div>
+          <p className="text-xs text-gray-500 mt-2">Recommended: Company logo in PNG or JPG format</p>
         </div>
       </div>
     );
