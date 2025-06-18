@@ -37,14 +37,14 @@ const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
                 { field: "name", title: "Name", placeholder: "Enter your name" },
                 { field: "designation", title: "Designation", placeholder: "Enter your designation" }
             ],
-            className: "flex gap-4"
+            className: "flex flex-col sm:flex-row gap-4"
         },
         {
             groupFields: [
                 { field: "email", title: "Email", placeholder: "Enter your email" },
                 { field: "phone", title: "Phone", placeholder: "Enter your phone number" }
             ],
-            className: "flex gap-4"
+            className: "flex flex-col sm:flex-row gap-4"
         },
         {
             groupFields: [
@@ -57,15 +57,15 @@ const Details: React.FC<DetailsProps> = ({ formValues, onFormChange }) => {
                 { field: "companyName", title: "Company Name", placeholder: "Enter your company name" },
                 { field: "link", title: "Link [QR]", placeholder: "Enter your link" }
             ],
-            className: "flex gap-4"
+            className: "flex flex-col sm:flex-row gap-4"
         }
     ];
 
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6 space-y-4">
-        <h2 className="text-2xl font-semibold text-[#1a365d] mb-6">Business Card Details</h2>
+      <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 space-y-4 w-full">
+        <h2 className="text-xl sm:text-2xl font-semibold text-[#1a365d] mb-4 sm:mb-6">Business Card Details</h2>
         {detailsGroups.map((group, groupIndex) => (
-          <div key={groupIndex} className={`${group.className} mb-4`}>
+          <div key={groupIndex} className={`${group.className} mb-3 sm:mb-4`}>
             {group.groupFields.map((item) => (
               <div key={item.field} className="flex-1">
                 <TextField

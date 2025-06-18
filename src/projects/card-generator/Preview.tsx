@@ -24,10 +24,10 @@ const Preview: React.FC<PreviewProps> = ({ formValues }) => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-2 justify-center items-center">
+    <div className="flex flex-col gap-2 justify-center items-center w-full">
       <div
         ref={componentRef}
-        className="relative flex bg-[#1a365d] text-[#e5b45b] h-[270px] w-[480px] overflow-hidden rounded-2xl shadow-xl"
+        className="relative flex bg-[#1a365d] text-[#e5b45b] h-[200px] sm:h-[240px] md:h-[270px] w-full max-w-[480px] overflow-hidden rounded-2xl shadow-xl"
       >
         <div className="absolute top-0 left-0 w-[55%] h-full bg-[#1a365d] transform -skew-x-12 origin-top-left z-10"></div>
         <div className="relative z-20 w-[50%] p-8 flex flex-col justify-center items-center">
@@ -42,22 +42,22 @@ const Preview: React.FC<PreviewProps> = ({ formValues }) => {
             <p className="text-md font-semibold">{companyName || "Nextgen"}</p>
           </div>
           <img
-            src={`https://api.qrserver.com/v1/create-qr-code/?data=${linkUrl}&size=220x220&margin=0&color=e5b45b&bgcolor=1a365d`}
-            alt="QR"
-            className="w-16 h-16"
-          />
+              src={`https://api.qrserver.com/v1/create-qr-code/?data=${linkUrl}&size=220x220&margin=0&color=e5b45b&bgcolor=1a365d`}
+              alt="QR"
+              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
+            />
         </div>  
         <div className="relative z-20 flex-1 p-8 flex flex-col justify-center items-start">
-          <h1 className="text-2xl font-bold tracking-wider mb-1">{name || "AMAN VERMA"}</h1>
-          <p className="text-lg font-medium mb-6">{designation || "Full Stack Developer"}</p>
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold tracking-wider mb-1">{name || "AMAN VERMA"}</h1>
+          <p className="text-base sm:text-lg font-medium mb-4 sm:mb-6">{designation || "Full Stack Developer"}</p>
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-[#e5b45b] rounded flex items-center justify-center">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#e5b45b] rounded flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#1a365d]" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
               </div>
-              <p className="text-sm">{phone || "+91 9167682410"}</p>
+              <p className="text-xs sm:text-sm">{phone || "+91 9167682410"}</p>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 bg-[#e5b45b] rounded flex items-center justify-center">
