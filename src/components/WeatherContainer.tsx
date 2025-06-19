@@ -10,7 +10,7 @@ const WeatherContainer: React.FC = () => {
 
   return (
     <div
-      className="min-h-[500px] w-[400px] flex flex-col items-center gap-6 p-8 
+      className="min-h-[500px] w-[400px] flex flex-col items-center gap-6 p-8
                     bg-gradient-to-br from-blue-400 via-blue-300 to-blue-200 
                     shadow-2xl rounded-2xl relative overflow-hidden"
     >
