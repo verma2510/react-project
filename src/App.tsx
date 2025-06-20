@@ -36,7 +36,7 @@ const App: React.FC = () => {
         <TodoContainer id={1} text="text" />
         <WeatherContainer />
       </div>  
-      <div className="p-4 flex gap-6 items-center">
+      <div className="p-4 flex justify-center gap-6 items-center">
         <Todo items={TodoItems} />
         <button
           onClick={(e) => setState(!state)}
