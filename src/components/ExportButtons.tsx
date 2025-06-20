@@ -71,7 +71,7 @@ const ExportButtons: React.FC<ExportButtonsProps> = ({ componentRef }) => {
     <div className="flex gap-2">
       {exportData.map((button) => (
         <button
-          className="border px-2 py-1 font-semibold rounded-md cursor-pointer bg-red-500 text-white"
+          className="border px-2 py-1 font-semibold rounded-md cursor-pointer bg-[#1a365d] text-white"
           key={button.format}
           onClick={button.onClick}
         >
