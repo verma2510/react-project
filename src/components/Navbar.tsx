@@ -12,9 +12,13 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[lightblue] text-gray-800 h-[50px] flex justify-center items-center font-bold">
-      <img src="https://orphicsolution.com/images/orphic1logo.png" alt="Company Logo" />
-      <ul className="flex justify-center items-center w-full max-w-[1200px]">
+    <div className="bg-[lightblue] text-gray-800 h-[70px] flex justify-center items-center font-bold">
+      <img
+        src="https://orphicsolution.com/images/orphic1logo.png"
+        alt="Company Logo"
+        className="w-[100px] h-[70px] object-contain"
+      />
+      <ul className="flex cursor-pointer gap-4 justify-center items-center w-full max-w-[1200px]">
         {navbarData.map((item) => (
           <li key={item} className="p-2">
             {item}
