@@ -6,6 +6,7 @@ import { useState } from "react";
 import TodoContainer from "./components/TodoContainer";
 import WeatherContainer from "./components/WeatherContainer";
 import CardGenerator from "./projects/card-generator/CardGenerator";
+import Navbar from "./components/Navbar";
 
 const TodoItems = [
   {
@@ -31,11 +32,12 @@ const App: React.FC = () => {
 
   return (
     <>
+      <Navbar />
       <div className="flex flex-col items-center justify-center gap-10 p-4">
         {" "}
         <TodoContainer id={1} text="text" />
         <WeatherContainer />
-      </div>  
+      </div>
       <div className="p-4 flex justify-center gap-6 items-center">
         <Todo items={TodoItems} />
         <button
@@ -46,7 +48,7 @@ const App: React.FC = () => {
         </button>
         {state ? <Counter /> : ""}
       </div>
-      <CardGenerator/>
+      <CardGenerator />
       <div className="p-4 flex gap-8 items-center justify-center">
         <TicTacToe />
       </div>
