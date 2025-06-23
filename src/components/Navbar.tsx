@@ -4,13 +4,13 @@ const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const navbarData = [
-    "Home",
-    "About",
-    "Service",
-    "Training",
-    "Career",
-    "Contact Us",
-    "Blog",
+    "HOME",
+    "ABOUT",
+    "SERVICE",
+    "TRAINING",
+    "CAREER",
+    "CONTACT US",
+    "BLOG",
   ];
 
   const serviceDropdown = [
@@ -31,12 +31,12 @@ const Navbar: React.FC = () => {
         {navbarData.map((item) => (
           <li 
             key={item} 
-            className="p-2 relative hover:underline"
-            onMouseEnter={() => item === "Service" && setShowDropdown(true)}
-            onMouseLeave={() => item === "Service" && setShowDropdown(false)}
+            className="p-2 relative hover:text-[orange] duration-300"
+            onMouseEnter={() => item === "SERVICE" && setShowDropdown(true)}
+            onMouseLeave={() => item === "SERVICE" && setShowDropdown(false)}
           >
             {item}
-            {item === "Service" && showDropdown && (
+            {item === "SERVICE" && showDropdown && (
               <ul className="absolute top-full  font-semibold left-0 bg-white shadow-md rounded-md w-[200px] z-10">
                 {serviceDropdown.map((service) => (
                   <li 
