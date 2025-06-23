@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar: React.FC = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
   const navbarData = [
     "Home",
     "About",
@@ -9,6 +11,13 @@ const Navbar: React.FC = () => {
     "Career",
     "Contact Us",
     "Blog",
+  ];
+
+  const serviceDropdown = [
+    "Search Engine Optimization",
+    "Social Media Marketing",
+    "Website Development",
+    "Pay Per Click"
   ];
 
   return (
@@ -20,8 +29,25 @@ const Navbar: React.FC = () => {
       />
       <ul className="flex cursor-pointer gap-4 justify-center items-center w-full max-w-[1200px]">
         {navbarData.map((item) => (
-          <li key={item} className="p-2">
+          <li 
+            key={item} 
+            className="p-2 relative hover:underline"
+            onMouseEnter={() => item === "Service" && setShowDropdown(true)}
+            onMouseLeave={() => item === "Service" && setShowDropdown(false)}
+          >
             {item}
+            {item === "Service" && showDropdown && (
+              <ul className="absolute top-full  font-semibold left-0 bg-white shadow-md rounded-md w-[200px] z-10">
+                {serviceDropdown.map((service) => (
+                  <li 
+                    key={service} 
+                    className="p-2 hover:bg-gray-100 text-sm"
+                  >
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
