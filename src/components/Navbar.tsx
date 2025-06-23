@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
           {navbarData.map((item) => (
             <li 
               key={item} 
-              className="p-2 relative hover:text-[orange] duration-300 w-full md:w-auto text-center"
+              className="p-2 relative hover:text-[orange] duration-300 w-full md:w-auto font-bold text-center"
               onMouseEnter={() => item === "SERVICE" && setShowDropdown(true)}
               onMouseLeave={() => item === "SERVICE" && setShowDropdown(false)}
             >
